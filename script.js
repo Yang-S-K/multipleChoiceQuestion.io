@@ -31,7 +31,7 @@ document.getElementById("upload-database").addEventListener("change", event => {
         reader.onload = () => {
             try {
                 const uploadedData = JSON.parse(reader.result);
-                if (Array.isArray(uploadedData) && uploadedData.every(item => "question" in item && "choices" in item && "answer" in item)) {
+                if (Array.isArray(uploadedData) && uploadedData.every(item => "question" in item && "options" in item && "answer" in item)) {
                     wordBank = uploadedData.map(item => ({ ...item, seen: false }));
                     alert("題庫上傳成功！");
                 } else {
