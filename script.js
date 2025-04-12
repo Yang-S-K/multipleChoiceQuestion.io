@@ -7,17 +7,19 @@ let totalTimerInterval = null;
 let currentAnswers = [];
 let questionLimit = Infinity;
 let records = [];
+let filteredBank = [];
 
 async function loadWordBank() {
   try {
     const response = await fetch("mid.json");
     if (!response.ok) throw new Error("檔案載入失敗");
     wordBank = await response.json();
+    filteredBank = [...wordBank];
     if (wordBank.length === 0) {
       alert("題庫為空，請確認檔案內容！");
     }
     resetQuizState();
-    renderWordBank(1); // 確保首次載入也觸發分頁
+    renderWordBank(1);
   } catch (error) {
     alert("無法載入預設題庫，請確認 mid.json 是否存在！");
   }
@@ -218,13 +220,16 @@ function showRecordDetail(index) {
 
 function renderWordBank(page = 1) {
   const content = document.getElementById("word-bank-content");
-  content.innerHTML = "<h2>題庫內容</h2>";
+  content.innerHTML = `
+    <h2>題庫內容</h2>
+    <input type="text" id="search-input" placeholder="搜尋題目關鍵字..." style="width: 80%; padding: 8px; font-size: 16px;" />
+  `;
 
   const questionsPerPage = 1;
-  const totalPages = Math.ceil(wordBank.length / questionsPerPage);
+  const totalPages = Math.ceil(filteredBank.length / questionsPerPage);
   const start = (page - 1) * questionsPerPage;
   const end = start + questionsPerPage;
-  const currentQuestions = wordBank.slice(start, end);
+  const currentQuestions = filteredBank.slice(start, end);
 
   currentQuestions.forEach((item, index) => {
     const div = document.createElement("div");
@@ -244,5 +249,13 @@ function renderWordBank(page = 1) {
   }
 
   content.appendChild(pagination);
+
+  // 搜尋事件綁定
+  const searchInput = document.getElementById("search-input");
+  searchInput.addEventListener("input", () => {
+    const keyword = searchInput.value.trim().toLowerCase();
+    filteredBank = wordBank.filter(item => item.question.toLowerCase().includes(keyword));
+    renderWordBank(1);
+  });
 }
 
