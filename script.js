@@ -14,15 +14,16 @@ async function loadWordBank() {
         const response = await fetch("mid.json");
         if (!response.ok) throw new Error("檔案載入失敗");
         wordBank = await response.json();
+        console.log("預設題庫已載入：", wordBank);
         if (wordBank.length === 0) {
             alert("題庫為空，請確認檔案內容！");
         }
         resetQuizState();
     } catch (error) {
+        console.error("無法載入預設單字庫", error);
         alert("無法載入預設題庫，請確認 mid.json 是否存在！");
     }
 }
-
 document.getElementById("upload-database").addEventListener("change", event => {
     const file = event.target.files[0];
     if (file) {
