@@ -233,7 +233,7 @@ function showRecordDetail(index, page = 1) {
   const content = document.getElementById("record-content");
   content.innerHTML = `<h2>詳情 #${index + 1}</h2><button onclick="renderRecords()">返回紀錄列表</button><div id="record-detail-list"></div><div id="record-detail-pagination"></div>`;
 
-  const answersPerPage = 5;
+  const answersPerPage = 3;
   const totalPages = Math.max(1, Math.ceil(record.answers.length / answersPerPage));
   if (page > totalPages) page = totalPages;
   const start = (page - 1) * answersPerPage;
