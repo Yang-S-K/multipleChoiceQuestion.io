@@ -1,4 +1,4 @@
-// 支援新的題庫格式：question + options[] + answer（index）
+// 支援新的題庫格式並加入題庫分頁（每頁 1 題）
 
 let wordBank = [];
 let score = 0;
@@ -69,7 +69,7 @@ document.getElementById("view-records-home").addEventListener("click", () => {
 });
 document.getElementById("view-words-home").addEventListener("click", () => {
   showPage("word-bank");
-  renderWordBank();
+  renderWordBank(1);
 });
 document.getElementById("back-to-home-from-word-bank").addEventListener("click", () => showPage("home"));
 document.getElementById("back-to-home-from-record").addEventListener("click", () => showPage("home"));
@@ -216,12 +216,32 @@ function showRecordDetail(index) {
   });
 }
 
-function renderWordBank() {
+function renderWordBank(page = 1) {
   const content = document.getElementById("word-bank-content");
   content.innerHTML = "<h2>題庫內容</h2>";
-  wordBank.forEach((item, index) => {
+
+  const questionsPerPage = 1;
+  const totalPages = Math.ceil(wordBank.length / questionsPerPage);
+  const start = (page - 1) * questionsPerPage;
+  const end = start + questionsPerPage;
+  const currentQuestions = wordBank.slice(start, end);
+
+  currentQuestions.forEach((item, index) => {
     const div = document.createElement("div");
-    div.innerHTML = `<p><strong>#${index + 1}</strong><br>${item.question}<br>選項：${item.options.join("，")}<br>正解：${item.options[item.answer]}</p>`;
+    div.innerHTML = `<p><strong>#${start + index + 1}</strong><br>${item.question}<br>選項：${item.options.join("，")}<br>正解：${item.options[item.answer]}</p>`;
     content.appendChild(div);
   });
+
+  const pagination = document.createElement("div");
+  pagination.id = "pagination";
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    if (i === page) btn.className = "current-page";
+    btn.addEventListener("click", () => renderWordBank(i));
+    pagination.appendChild(btn);
+  }
+
+  content.appendChild(pagination);
 }
