@@ -195,26 +195,71 @@ function resetQuiz() {
   startQuiz();
 }
 
-function renderRecords() {
+function renderRecords(page = 1) {
   const content = document.getElementById("record-content");
-  content.innerHTML = "<h2>測驗紀錄</h2>";
-  records.forEach((record, index) => {
+  content.innerHTML = "<h2>測驗紀錄</h2><div id='record-list'></div><div id='record-pagination'></div>";
+
+  const recordsPerPage = 5;
+  const totalPages = Math.max(1, Math.ceil(records.length / recordsPerPage));
+  if (page > totalPages) page = totalPages;
+  const start = (page - 1) * recordsPerPage;
+  const end = start + recordsPerPage;
+  const currentRecords = records.slice(start, end);
+
+  const list = document.getElementById("record-list");
+  list.innerHTML = "";
+
+  currentRecords.forEach((record, index) => {
     const div = document.createElement("div");
-    div.innerHTML = `<p><strong>#${index + 1}</strong> 得分: ${record.score}/${record.totalQuestions}，時間: ${record.totalTime} 秒</p><button onclick="showRecordDetail(${index})">查看詳情</button>`;
-    content.appendChild(div);
+    div.innerHTML = `<p><strong>#${start + index + 1}</strong> 得分: ${record.score}/${record.totalQuestions}，時間: ${record.totalTime} 秒</p>
+      <button onclick="showRecordDetail(${start + index})">查看詳情</button>`;
+    list.appendChild(div);
   });
+
+  const pagination = document.getElementById("record-pagination");
+  pagination.innerHTML = "";
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    if (i === page) btn.className = "current-page";
+    btn.addEventListener("click", () => renderRecords(i));
+    pagination.appendChild(btn);
+  }
 }
 
-function showRecordDetail(index) {
+
+function showRecordDetail(index, page = 1) {
   const record = records[index];
   const content = document.getElementById("record-content");
-  content.innerHTML = `<h2>詳情 #${index + 1}</h2><button onclick="renderRecords()">返回紀錄列表</button>`;
-  record.answers.forEach((ans, i) => {
+  content.innerHTML = `<h2>詳情 #${index + 1}</h2><button onclick="renderRecords()">返回紀錄列表</button><div id="record-detail-list"></div><div id="record-detail-pagination"></div>`;
+
+  const answersPerPage = 5;
+  const totalPages = Math.max(1, Math.ceil(record.answers.length / answersPerPage));
+  if (page > totalPages) page = totalPages;
+  const start = (page - 1) * answersPerPage;
+  const end = start + answersPerPage;
+  const currentAnswers = record.answers.slice(start, end);
+
+  const detailList = document.getElementById("record-detail-list");
+  detailList.innerHTML = "";
+
+  currentAnswers.forEach((ans, i) => {
     const item = document.createElement("div");
-    item.innerHTML = `<p>第 ${i + 1} 題：${ans.question}<br>你的答案：${ans.userAnswer}<br>正確答案：${ans.correctAnswer}<br>${ans.isCorrect ? "✅" : "❌"}</p>`;
-    content.appendChild(item);
+    item.innerHTML = `<p>第 ${start + i + 1} 題：${ans.question}<br>你的答案：${ans.userAnswer}<br>正確答案：${ans.correctAnswer}<br>${ans.isCorrect ? "✅" : "❌"}</p>`;
+    detailList.appendChild(item);
   });
+
+  const pagination = document.getElementById("record-detail-pagination");
+  pagination.innerHTML = "";
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    if (i === page) btn.className = "current-page";
+    btn.addEventListener("click", () => showRecordDetail(index, i));
+    pagination.appendChild(btn);
+  }
 }
+
 function renderWordBank(page = 1) {
   renderFilteredWordBank("", page);
 }
