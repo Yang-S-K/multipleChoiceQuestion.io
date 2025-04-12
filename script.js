@@ -1,4 +1,3 @@
-// 支援新的題庫格式並加入題庫分頁（每頁 1 題）
 
 let wordBank = [];
 let score = 0;
@@ -18,6 +17,7 @@ async function loadWordBank() {
       alert("題庫為空，請確認檔案內容！");
     }
     resetQuizState();
+    renderWordBank(1); // 確保首次載入也觸發分頁
   } catch (error) {
     alert("無法載入預設題庫，請確認 mid.json 是否存在！");
   }
@@ -245,3 +245,4 @@ function renderWordBank(page = 1) {
 
   content.appendChild(pagination);
 }
+
