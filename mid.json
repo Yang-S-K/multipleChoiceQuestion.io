@@ -1,0 +1,362 @@
+[
+  {
+    "question": "在Matlab中，可將灰階影像轉換為索引影像的指令為何?",
+    "options": [
+      "rgb2gray",
+      "gray2rgb",
+      "gray2ind",
+      "ind2gray"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "對一個八位元的灰階影像進行八階規則抖動處理時，所需要的抖動常數C為多少?",
+    "options": [
+      "127",
+      "17",
+      "37",
+      "85"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "在Matlab中，給定一個索引影像X及對應的色盤矩陣map，若要顯示此影像於圖像視窗時，可使用下列哪一個指令?",
+    "options": [
+      "imshow(X,map)",
+      "imread(X,map)",
+      "impixel(X,map)",
+      "imwrite(X,map)"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "在Matlab中，對一個八位元的灰階影像X進行四階量化處理時，可使用下列哪一個指令?",
+    "options": [
+      "floor(X/36)",
+      "floor(X/128)",
+      "floor(X/85)",
+      "floor(X/17)"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "在Matlab中，顯示影像時，若自動將數值轉換成色盤矩陣可表示的範圍(1~K之間)，可使用下列哪個指令?",
+    "options": [
+      "imagesc",
+      "figure",
+      "imshow",
+      "image"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "在Matlab中，數值表示範圍為0~65535之間的資料型態為何?",
+    "options": [
+      "int16",
+      "uint16",
+      "uint8",
+      "int8"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "PNG圖檔的何種特性可適合在網路傳輸中快速顯示預覽效果?",
+    "options": [
+      "無失真壓縮",
+      "Gamma校準",
+      "漸進顯示",
+      "透明/半透明特性"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "PNG圖檔不支援下列何種影像格式?",
+    "options": [
+      "32位元浮點影像",
+      "8位元灰度影像",
+      "24位元真色彩影像",
+      "48位元真色彩影像"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "人眼視覺假象中，下列何者是用來說明人眼感受到的強度不是實際強度?",
+    "options": [
+      "馬赫帶效應",
+      "視覺錯覺",
+      "聯合對比度",
+      "視覺特效"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "在Matlab中，可將彩色影像轉換為灰階影像的指令為何?",
+    "options": [
+      "gray2rgb",
+      "rgb2gray",
+      "gray2ind",
+      "ind2gray"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "在Matlab中，給定一個索引影像X及對應的色盤矩陣map，若要讀取此影像當中特定位置上得像素值時，可使用下列哪一個指令?",
+    "options": [
+      "impixel(map,X)",
+      "imshow(map,X)",
+      "impixel(X,map)",
+      "imshow(X,map)"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "給定一個Dithering matrix D=[64, 128; 192, 0]，對一個灰階矩陣I=[64, 128; 128, 256]進行二階規則抖動處理時，結果為何?",
+    "options": [
+      "[0, 0; 0, 1]",
+      "[1, 0; 0, 1]",
+      "[0, 1; 0, 0]",
+      "[0, 1; 1, 0]"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "PNG圖檔的開發，目標是取代何種影像圖檔?",
+    "options": [
+      "GIF",
+      "TIFF",
+      "JPG",
+      "BMP"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "令r(x,y,u,v)為前像轉換核函數，若該核函數為可分離且對稱，則符合下列何種特性?",
+    "options": [
+      "r(x,y,u,v)=r1(x,y)r2(u,v)",
+      "r(x,y,u,v)=r1(x,u)r2(y,v)",
+      "r(x,y,u,v)=r1(x,y)r1(u,v)",
+      "r(x,y,u,v)=r1(x,u)r1(y,v)"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "下列何種影像格式較適合用於儲存文字、線條及邊緣清晰、有大塊相同顏色區域的影像壓縮應用?",
+    "options": [
+      "JPG",
+      "TIFF",
+      "PNG",
+      "GIF"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "下列哪個Dithering matrix適合用於灰階影像的八階規則抖動處理?",
+    "options": [
+      "[0, 128; 192, 64]",
+      "[0, 56; 84, 28]",
+      "[0, 24; 36, 12]",
+      "[0, 2; 3, 1]"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "描述一個像素與鄰近像素之間的連接性，稱為",
+    "options": [
+      "像素的集合",
+      "像素的近鄰性",
+      "像素的鄰接性",
+      "像素的連通性"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "兩個相同值的像素p與q，若q在N8(p)集合中，則兩像素之間的關係稱為",
+    "options": [
+      "d-鄰接性",
+      "4-鄰接性",
+      "以上皆是",
+      "8-鄰接性"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "對m-bit灰階影像進行量化來產生為二值化影像時，所需要的量化階數n為多少?",
+    "options": [
+      "8",
+      "16",
+      "4",
+      "2"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "令R為S中的一個子集合，若R為連通集合，則可稱R為影像中的",
+    "options": [
+      "邊緣",
+      "邊界",
+      "區塊",
+      "區域"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "下列哪個Dithering matrix適合用於灰階影像的四階規則抖動處理?",
+    "options": [
+      "[0, 56; 84, 28]",
+      "[0, 128; 192, 64]",
+      "[0, 2; 3, 1]",
+      "[0, 24; 36, 12]"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "設計Floyd-Steinberg錯誤擴散濾波器時，中心像素下方鄰近像素的權重為多少?",
+    "options": [
+      "5/16",
+      "7/16",
+      "1/16",
+      "3/16"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "在Matlab中，顯示影像時，若要以影像本身的長寬比來成像，則可使用下列哪個指令?",
+    "options": [
+      "axis imagesc",
+      "axis imshow",
+      "axis image",
+      "axis figure"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "設計Floyd-Steinberg錯誤擴散濾波器時，中心像素右下方鄰近像素的權重為多少?",
+    "options": [
+      "5/16",
+      "1/16",
+      "3/16",
+      "7/16"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "TIFF圖檔具有下列何種特性?",
+    "options": [
+      "有失真壓縮支援透明度",
+      "無失真壓縮不支援透明度",
+      "無失真壓縮支援透明度",
+      "有失真壓縮不支援透明度"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "在Matlab中，可將索引影像轉換為灰階影像的指令為何?",
+    "options": [
+      "rgb2gray",
+      "gray2ind",
+      "ind2gray",
+      "gray2rgb"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "下列何種影像格式為無壓縮的點陣圖影像?",
+    "options": [
+      "JPG",
+      "BMP",
+      "TIFF",
+      "GIF"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "假設一張索引影像的大小為MxN，色盤矩陣包含K組顏色資訊，則該索引影像所包含的記憶體位元組(Byte)數最少是多少?",
+    "options": [
+      "MxN+K",
+      "MxN+Kx3",
+      "MxNxKx3",
+      "MxNxK"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "在Matlab中，使用imread指令讀取PNG圖檔的alpha通道時，下列何者為正確的指令?",
+    "options": [
+      "[img, map, alpha]=imread(filename)",
+      "[alpha, img]=imread(filename)",
+      "[img, alpha, map]=imread(filename)",
+      "[img, alpha]=imread(filename)"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "JPG圖檔具有下列何種特性?",
+    "options": [
+      "有失真壓縮不支援透明度",
+      "無失真壓縮支援透明度",
+      "無失真壓縮不支援透明度",
+      "有失真壓縮支援透明度"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "超過8位元色深的PNG圖像轉換為GIF時會產生何種現象?",
+    "options": [
+      "影像品質因分色而下降",
+      "影像大小因分色而下降",
+      "影像大小因分色而提升",
+      "影像品質因分色而提升"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "令兩個像素座標分別為p(x,y)、q(u,v)，則兩者之間的距離值max(|x-u|,|y-v|)為何種距離函式的計算?",
+    "options": [
+      "D4(p,q)",
+      "D8(p,q)",
+      "De(p,q)",
+      "D2(p,q)"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "給定一個Dithering matrix D=[0, 128; 192, 64]，對一個灰階矩陣I=[64, 128; 128, 256]進行二階規則抖動處理時，結果為何?",
+    "options": [
+      "[0, 1; 0, 0]",
+      "[0, 1; 1, 0]",
+      "[0, 0; 0, 1]",
+      "[1, 0; 0, 1]"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "在Matlab中，使用imfinfo指令來確認PNG圖檔是否有支援alpha通道時，可由哪一個欄位來確認?",
+    "options": [
+      "Filename",
+      "Transparency",
+      "ColorType",
+      "Format"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "高韋伯比(Weber Ratio)代表視覺系統具備何種視覺能力?",
+    "options": [
+      "高亮度適應性",
+      "低亮度適應性",
+      "低亮度鑑別性",
+      "高亮度鑑別性"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "在Matlab中，用於創建一個圖像視窗的指令為何?",
+    "options": [
+      "imshow",
+      "image",
+      "figure",
+      "colormap"
+    ],
+    "answer": 2
+  }
+]
