@@ -358,5 +358,105 @@
       "colormap"
     ],
     "answer": 2
+  },
+  {
+    "question": "在Matlab中，使用imread指令讀取索引影像時，影像色盤矩陣的資料型態為何?",
+    "options": [
+      "int8",
+      "double",
+      "uint8",
+      "uint16"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "給定一個數位路徑{p0, p1, p2, p3}，則此路徑的長度為何?",
+    "options": [
+      "2",
+      "3",
+      "0",
+      "1"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "韋伯比(Weber Ratio)可用來衡量人眼視覺系統的何種視覺能力?",
+    "options": [
+      "亮度適應性",
+      "亮度鑑別性",
+      "視覺錯覺",
+      "視覺假象"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "在Matlab中，數值表示範圍為-32768~32767之間的資料型態為何?",
+    "options": [
+      "int16",
+      "uint16",
+      "uint8",
+      "int8"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "人眼視覺系統中，能在低亮度條件下提供較狹窄的亮度適應範圍為何種視覺能力?",
+    "options": [
+      "立體視覺",
+      "夜視覺",
+      "亮光視覺",
+      "白晝視覺"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "下列電磁放射來源，何者光譜能量最低?",
+    "options": [
+      "Gamma射線",
+      "紅外光",
+      "X光",
+      "紫外光"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "在Matlab中，顯示索引影像時，用於設定色盤矩陣的指令為何?",
+    "options": [
+      "colormap",
+      "image",
+      "imshow",
+      "figure"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "令兩個像素座標分別為p(x,y)、q(u,v)，則兩者之間的距離值|x-u|+|y-v|為何種距離函式的計算?",
+    "options": [
+      "De(p,q)",
+      "D4(p,q)",
+      "D8(p,q)",
+      "D2(p,q)"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "若以資料處理架構來分類演算法領域，電腦視覺方法不包含下列何種資料處理?",
+    "options": [
+      "高階資料處理",
+      "低階資料處理",
+      "中階資料處理",
+      "以上皆非"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "下列何者為二維傅立葉轉換所使用的核函數r(x,y,u,v)?",
+    "options": [
+      "exp[-2pi(ux/M+vy/N)]",
+      "exp[j2pi(ux/M+vy/N)]",
+      "exp[2pi(ux/M+vy/N)]",
+      "exp[-j2pi(ux/M+vy/N)]"
+    ],
+    "answer": 3
   }
 ]
