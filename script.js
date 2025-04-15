@@ -1,5 +1,3 @@
-// 支援新的題庫格式並加入題庫分頁（每頁 1 題）
-
 let wordBank = [];
 let score = 0;
 let totalQuestions = 0;
@@ -111,16 +109,27 @@ function startQuiz() {
   }
 
   const selected = remaining[Math.floor(Math.random() * remaining.length)];
+
+  // === ✅ 選項洗牌處理開始 ===
+  const shuffledOptions = selected.options.map((opt, idx) => ({ text: opt, index: idx }));
+  for (let i = shuffledOptions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+  }
+  selected.shuffledOptions = shuffledOptions;
+  selected.shuffledAnswer = shuffledOptions.findIndex(opt => opt.index === selected.answer);
+  // === ✅ 選項洗牌處理結束 ===
+
   const question = document.createElement("h2");
   question.innerText = selected.question;
 
   const optionsContainer = document.createElement("div");
   optionsContainer.id = "options-container";
 
-  selected.options.forEach((opt, idx) => {
+  shuffledOptions.forEach((opt, idx) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
-    btn.innerText = opt;
+    btn.innerText = opt.text;
     btn.addEventListener("click", () => handleChoice(selected, idx));
     optionsContainer.appendChild(btn);
   });
@@ -137,9 +146,11 @@ function startQuiz() {
 function handleChoice(item, userAnswerIndex) {
   const result = document.createElement("div");
   result.id = "result";
-  const correctAnswer = item.options[item.answer];
-  const userAnswer = item.options[userAnswerIndex];
-  const isCorrect = item.answer === userAnswerIndex;
+
+  const correctAnswer = item.shuffledOptions[item.shuffledAnswer].text;
+  const userAnswer = item.shuffledOptions[userAnswerIndex].text;
+  const isCorrect = item.shuffledAnswer === userAnswerIndex;
+
   result.innerText = isCorrect ? "✅ 正確！" : `❌ 錯誤！正確答案是: ${correctAnswer}`;
 
   currentAnswers.push({
@@ -226,7 +237,6 @@ function renderRecords(page = 1) {
     pagination.appendChild(btn);
   }
 }
-
 
 function showRecordDetail(index, page = 1) {
   const record = records[index];
